@@ -2,7 +2,7 @@
 
 # 【文档】HZAU DDNS动态解析
 
-`_维护者：Yao Yin Ying_`
+`维护者：Yao Yin Ying`
 
 ### 目的
 
@@ -29,7 +29,7 @@
 7.  申请阿里云短信服务模板， 注意参数“pcname”和“newip” 分别对应子域名和IP地址（已改写为短线相连格式，原格式会被阿里云短信平台拦截）
 8.  在HTTP服务器的配制文件中设置py文件为可执行
 9.  在HTTP服务器的配制文件中设置https访问，注意添加证书
-10.  将api目录下的文件释放至服务器下子目录，
+10.  将文件释放至服务器根目录下的子目录
 11.  修改const.py中的参数，如下：
 
 项目 | 属性 | 值 | 默认值与定义
@@ -40,7 +40,7 @@ ACCESS_KEY_ID | str | RAM账号** | ""，必填
 ACCESS_KEY_SECRET | str | RAM账号** | ""，必填
 token | str | 动态解析口令 | ""，必填
 domain_name | str | 域名| ""，必填
-domain_name_list | str list | 域名列表| []，必填
+domain_name_list | str list | 域名列表| []，必填，必须包含domain_name
 admin_phonenumber | str | 手机号码| ""，放空则不发短信
 sms_signature | str | 短信签名| ""
 sms_temp_code | str | 短信模板号| ""
