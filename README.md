@@ -14,6 +14,7 @@
 *   监测和记录校园网网络故障事件
 
 ### 项目地址
+移动自：
 
 [https://github.com/YaoYinYing/python_learning/tree/master/HZAU_PYDDNS/api](https://github.com/YaoYinYing/python_learning/tree/master/HZAU_PYDDNS/api)
 
@@ -81,7 +82,7 @@ domain_name | str | 指定解析域名，不加此参数则解析默认域名
 
 Windows: 任务计划管理器
 
-Linux: cron
+Linux: cron【配置过程见文档】
 
 ### 返回值定义与调试措施
 
