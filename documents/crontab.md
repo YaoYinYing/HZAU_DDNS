@@ -8,7 +8,6 @@
 
 ``` bash
 vim ddns_task.sh
-
 ```
 
 写入以下信息，注意更改变量name的值
@@ -52,7 +51,7 @@ crontab -e
 
 ``` vim
 # DDNS TASK 
-* * * * *  /etc/profile;/bin/bash /path-to-task-script/ddns_task.sh>/dev/null 2>&1
+* * * * *  /etc/profile;/bin/bash /path-to-task-script/ddns_task.sh >/dev/null 2>&1
 ```
 
 ### 4. 检查是否写入完成
