@@ -42,7 +42,7 @@ def error_response(response_code):
                           "401.1": "POST REQUEST_METHOD IS REQUIRED.",
                           "401.2": "TOKEN ERROR",
                           "401.3": "INVALID DOMAIN",
-                          "401.4": "IP IS FOBBIDEN",
+                          "401.4": "IP IS FORBIDDEN",
                           "503.1": "CONNECTION ERROR",
                           "503.2": "Failed to create new record.",
                           "503.3": "Failed to read full records.",
@@ -203,7 +203,7 @@ def modify_record_name(domain_name, name, record_id, new_ip_addr):
 
 
 client_ip = get_client_ip_addr()
-if client_ip not in const.fobiden_ip:
+if client_ip not in const.forbidden_ip:
     domain_name, name_post = post_data()
     full_records_response = describe_full_records(domain_name)
     is_name_existed, name_data = search_name_from_full_records(name_post, full_records_response)
