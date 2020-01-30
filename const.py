@@ -17,6 +17,9 @@ domain_name =""
 # domain list
 domain_name_list =['']
 
+# fobiden ip
+fobiden_ip = [""]
+
 # SMS message setting, remain blank if not used.
 admin_phonenumber=""
 sms_signature=""
