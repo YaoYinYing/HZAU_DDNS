@@ -42,6 +42,7 @@ def error_response(response_code):
                           "401.1": "POST REQUEST_METHOD IS REQUIRED.",
                           "401.2": "TOKEN ERROR",
                           "401.3": "INVALID DOMAIN",
+                          "401.4": "IP IS FOBBIDEN",
                           "503.1": "CONNECTION ERROR",
                           "503.2": "Failed to create new record.",
                           "503.3": "Failed to read full records.",
@@ -202,18 +203,21 @@ def modify_record_name(domain_name, name, record_id, new_ip_addr):
 
 
 client_ip = get_client_ip_addr()
-domain_name, name_post = post_data()
-full_records_response = describe_full_records(domain_name)
-is_name_existed, name_data = search_name_from_full_records(name_post, full_records_response)
-if is_name_existed:
-    # name record exists
-    # compare and modify the records
-    record_id = name_data['RecordId']
-    ip_in_record = describe_name_record(record_id)
-    if ip_in_record == client_ip:
-        exist_and_count(domain_name, name_post, record_id)
-        OK_response("200.2 OK")
+if client_ip not in const.fobiden_ip:
+    domain_name, name_post = post_data()
+    full_records_response = describe_full_records(domain_name)
+    is_name_existed, name_data = search_name_from_full_records(name_post, full_records_response)
+    if is_name_existed:
+        # name record exists
+        # compare and modify the records
+        record_id = name_data['RecordId']
+        ip_in_record = describe_name_record(record_id)
+        if ip_in_record == client_ip:
+            exist_and_count(domain_name, name_post, record_id)
+            OK_response("200.2 OK")
+        else:
+            modify_record_name(domain_name, name_post, record_id, client_ip)
     else:
-        modify_record_name(domain_name, name_post, record_id, client_ip)
+        create_record(domain_name, name_post, client_ip)
 else:
-    create_record(domain_name, name_post, client_ip)
+    error_response("401.4")
