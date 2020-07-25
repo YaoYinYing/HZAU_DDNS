@@ -7,6 +7,7 @@
 
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+[![HitCount](http://hits.dwyl.com/YaoYinYing/HZAU_DDNS.svg)](http://hits.dwyl.com/YaoYinYing/HZAU_DDNS)
 ### 目的
 
 校园网为拨号上网，由网络中心DHCP服务器动态分配IP地址。而固定IP需要以学校职工名义向网络中心提分配的出申请，再经过各级审批，步骤多，耗时长。为保证在校园网内顺利提供服务，本人根据阿里云公开API编写了HZAU DDNS动态解析服务。该服务适用于：
